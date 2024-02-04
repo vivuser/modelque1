@@ -29,7 +29,7 @@ function stableSort(array) {
 
 
 const TableData = (props) => {
-    const [page, setPage] = React.useState(0);
+    const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [tableContainerHeight, setTableContainerHeight ] = useState(0);
 
@@ -75,14 +75,17 @@ const TableData = (props) => {
     }
 
     const handleChangeRowsPerPage = (event) => {
+        console.log(event.target.value, 'eventvalue')
         const newRowsPerPage = event?.target?.value ?? 10;
+        console.log(newRowsPerPage, 'newRowsPerPage')
         setRowsPerPage(newRowsPerPage);
+        console.log(rowsPerPage, 'rowsperpage')
         onChangeRowsPerPage(newRowsPerPage);
-        setPage(1)
+        setPage(0)
     };
 
 
-
+    console.log(rowsData)
 
     return (
         <>
@@ -104,7 +107,7 @@ const TableData = (props) => {
                 </TableRow>
             </TableHead>
             <TableBody>
-                        {rowsData && rowsData?.length ? (
+                        {rowsData && rowsData.length ? (
                             stableSort(rowsData)
                                 .slice(page * limit, page * limit + limit)
                                 .map((row, index) => {
@@ -112,7 +115,7 @@ const TableData = (props) => {
                                         <TableRow key={index}>
                                             {tableHeading?.map((heading, _index) => {
                                                 return (
-                                                    <TableCell className={heading.key === 'actions' ? "more": "table-custom-width"} key={_index}>
+                                                    <TableCell key={_index}>
                                                         {row?.[heading.key]}
                                                     </TableCell>
                                                 );

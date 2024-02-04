@@ -1,11 +1,22 @@
+"use client"
+import MenuOpenIcon from '@mui/icons-material/MenuOpen';
+import { useState } from 'react';
+import Sidebar from './Sidebar';
 const Header = () => {
+    const [sideBarOpen, setSideBarOpen] = useState(true)
+
+    const handleToggleBar = () => {
+        setSideBarOpen(!sideBarOpen)
+    }
 
     return (
-        <div className="h-14 z-50 shadow-sm flex justify-center items-center
-        fixed top-0 w-full bg-white flex flex-wrap gap-20"
+        <div className="h-14 z-50 shadow-sm justify-start items-center
+        fixed top-0 w-full bg-white flex flex-wrap gap-10 p-4"
         >
-            <h2 className="font-bold text-xl">Modelisque</h2>
-            <h2 className="font-bold text-xl">Modelisque</h2>
+            <MenuOpenIcon onClick={handleToggleBar}/>
+            <h2 className="font-bold text-xl">Picassa</h2>
+
+            {/* <Sidebar open={sideBarOpen} onClose={() => setSideBarOpen(false)}/> */}
 
         </div>
     )

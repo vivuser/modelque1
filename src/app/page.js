@@ -1,5 +1,6 @@
 import ActionAreaCard from "./components/Viewcards";
 
+
 export default function Home() {
   return (
 <div className="max-w-6xl mx-auto flex flex-col justify-center items-center mt-20">
