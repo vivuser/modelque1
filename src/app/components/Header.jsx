@@ -9,17 +9,17 @@ const Header = () => {
         setSideBarOpen(!sideBarOpen)
     }
 
-    return (
+    return (<>
         <div className="h-14 z-50 shadow-sm justify-start items-center
-        fixed top-0 w-full bg-white flex flex-wrap gap-10 p-4"
+        fixed top-0 w-full bg-white flex flex-wrap gap-10 p-4 "
         >
             <MenuOpenIcon onClick={handleToggleBar}/>
             <h2 className="font-bold text-xl">Picassa</h2>
+            </div>
 
-            {/* <Sidebar open={sideBarOpen} onClose={() => setSideBarOpen(false)}/> */}
-
-        </div>
-    )
+            <Sidebar open={sideBarOpen} onClose={() => setSideBarOpen(false)}/>
+        
+            </>)
     
 }
 

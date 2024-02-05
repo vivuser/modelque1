@@ -5,7 +5,7 @@ const Sidebar = ({open, onClose}) => {
 
   return (
     <div
-      className={`w-64 bg-slate-400 h-screen ${open ? 'block' : 'hidden'}`}>
+      className={`w-64 bg-slate-400 h-screen fixed ${open ? 'block' : 'hidden'}`}>
           <div
         className="top-2 right-2 cursor-pointer"
         onClick={onClose}

@@ -101,15 +101,28 @@ export default function BasicModal() {
               <MenuItem key={option.label} value={option.label}>
               {option.label}
               </MenuItem> 
-            )) || <MenuItem value="N/A">N/A</MenuItem>
+            )) || <MenuItem value="N/A">N/A</MenuItem> || <MenuItem value="other">Other</MenuItem>
             }
           </TextField>
+                           
+                           
                            <TextField
           label="Existing make"
           variant="outlined"
           fullWidth
           margin="normal"
-          />
+          value={existingMake}
+          onChange={(e) => setExistingMake(e.target.value)}
+          select
+          >
+            {equipmentOptions
+            .find((e) => e.value === equipment)
+            ?.existingMake?.map((option) => (
+              <MenuItem key={option.label} value={option.label}>
+              {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
         </Box>
       </Modal>
     </div>
